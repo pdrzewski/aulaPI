@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <canvas id="barras"></canvas>
+    </div>
+    <div>
+        <canvas id="linhas"></canvas>
+    </div>
+
+</body>
+
+<script>
+    const barra = document.getElementById('barras');
+
+    new Chart(barra, {
+        type: 'bar',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [
+                {
+                    label: 'Temperatura Média (°C)',
+                    data: [22, 24, 27, 23, 20, 18],
+                    backgroundColor: '#FFB1C1',
+                    yAxisID: 'y1'
+                },
+                {
+                    label: 'Umidade Média (%)',
+                    data: [90, 89, 93, 87, 88, 82],
+                    backgroundColor: '#9BD0F5',
+                    yAxisID: 'y2'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y1: {
+                    beginAtZero: true,
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: 'Temperatura (°C)'
+                    }
+                },
+                y2: {
+                    beginAtZero: true,
+                    position: 'right',
+                    title: {
+                        display: true,
+                        text: 'Umidade (%)'
+                    },
+                    grid: {
+                        drawOnChartArea: false
+                    }
+                }
+            }
+        }
+    });
+
+    const linha = document.getElementById('linhas');
+
+    new Chart(linha, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [
+                {
+                    label: 'Temperatura (°C)',
+                    data: [30, 29, 28, 25, 22, 23],
+                    borderColor: '#36A2EB',
+                    backgroundColor: '#FFB1C1',
+                    yAxisID: 'y1',
+                    tension: 0.3
+                },
+                {
+                    label: 'Umidade (%)',
+                    data: [80, 82, 80, 85, 80, 83],
+                    borderColor: '#FF6384',
+                    backgroundColor: '#9BD0F5',
+                    yAxisID: 'y2',
+                    tension: 0.3
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y1: {
+                    beginAtZero: true,
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: 'Temperatura (°C)'
+                    }
+                },
+                y2: {
+                    beginAtZero: true,
+                    position: 'right',
+                    title: {
+                        display: true,
+                        text: 'Umidade (%)'
+                    },
+                    grid: {
+                        drawOnChartArea: false
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</html>
